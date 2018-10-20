@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body style="background: linear-gradient(to bottom, black, black, goldenrod); height: 100vh">
+	<style type="text/css">
+	hr{
+		color: olive
+	}
+	ul,li{text-decoration: none; list-style: none; display: inline-block; margin-left: 20px}
+	/*border radius button*/
+	.wraper_rad{
+		width: 400px;
+		background: chocolate;
+		margin: 2% auto;
+		padding: 20px;
+		font-family: Roboto;
+		color: black;
+		text-transform: uppercase;
+		font-weight: bold
+	}
+	.wraper_rad #button_rad{
+		padding: 20px 50px;
+		margin-left: 100px;
+		margin-top:40px;
+		background: rgba(0,0,0,0.4);
+		border: 1px solid black;
+		text-transform: uppercase;
+		font-size: 14px
+	}
+	.wraper_rad hr{
+		color:black;
+	}
+	.wraper_rad #ttl, #ttr, #tbr, #tbl{
+		background: rgba(0,0,0,0.4);
+		padding: 2px;
+		border: none;
+		color: white;
+		font-family: Arial;
+	}
+.wraper_rad #rtl, #rtr, #rbr, #rbl{
+		border: 1px;
+		padding: 2px;
+	}
+.wraper_rad p{
+		text-decoration: underline;	
+}
+.wraper_rad #color{
+	width: 40px;
+	height: 40px;
+	padding: 0px;
+	border: none;
+}
+#font_color{
+	width: 40px;
+	height: 40px;
+	padding: 0px;
+	border: none;
+}
+/*border radius button end*/
+</style>
+
+<!-- wraper input -->
+<div class="wraper_rad">
+	<p>Top left</p>
+	<input type="range" min="0" max="50" step="1" id="rtl" oninput="valInp()" value="0">
+	<input type="text"  id="ttl" >
+
+	<p>Top right</p>
+	<input type="range" min="0" max="50" step="1" id="rtr" oninput="valInp()" value="0">
+	<input type="text" id="ttr">
+
+	<p>Bottom right</p>
+	<input type="range" min="0" max="50" step="1" id="rbl" oninput="valInp()" value="0">
+	<input type="text" id="tbl">
+
+	<p>Bottom left</p>
+	<input type="range" min="0" max="50" step="1" id="rbr" oninput="valInp()" value="0">
+	<input type="text"  id="tbr">
+	<ul>
+		<li>
+			<p>bg color</p>
+			<input type="color" id="color" oninput="valInp()"></li>
+		<li>
+			<p>font</p>
+			<input type="color" id="font_color" oninput="valInp()"></li>
+		</li>
+		<li></li>
+		<li></li>
+	</ul>
+	<hr>
+	<button id="button_rad" oninput="valInp()">border-radius</button><br><br><br>
+	<!-- wraper input end -->
+
+	<!-- js input -->
+		<script type="text/javascript">
+				let rtl = document.getElementById('rtl'),
+						ttl = document.getElementById('ttl'),
+				 		rtr = document.getElementById('rtr'),
+				 		ttr = document.getElementById('ttr'),
+				 		rbl = document.getElementById('rbl'),
+				 		tbl = document.getElementById('tbl'),
+				 		rbr = document.getElementById('rbr'),
+				 		tbr = document.getElementById('tbr'),
+				 	color = document.getElementById('color'),
+		 font_color = document.getElementById('font_color');
+		 let butRad = document.getElementById('button_rad');
+
+				function valInp(){
+					ttl.value = rtl.value;
+					ttr.value = rtr.value;
+					tbl.value = rbl.value;
+					tbr.value = rbr.value;
+
+					butRad.style.borderRadius = rtl.value + 'px ' + rtr.value + 'px ' + rbl.value + 'px ' + rbr.value + 'px ';
+					butRad.style.backgroundColor = color.value;
+					butRad.style.color = font_color.value;
+				};	
+		</script>
+	<!-- js input -->
+</body>
+</html>
